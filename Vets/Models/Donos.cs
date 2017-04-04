@@ -17,6 +17,6 @@ namespace Vets.Models
         public string Nome { set; get; }
 
         //[Required]
-        public string NIF { get; set; }
+        public string NIF { get; set; } //este
     }
 }
