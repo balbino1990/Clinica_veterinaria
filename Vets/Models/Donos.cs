@@ -16,7 +16,15 @@ namespace Vets.Models
         //[Required]
         public string Nome { set; get; }
 
+        public string Morada { get; set; }
+
+        public string CodPostal { get; set; }
+
         //[Required]
-        public string NIF { get; set; } //este
+        public string NIF { get; set; }
+
+        public double Altura { get; set; }
+
+        public int Idade { get; set; }
     }
 }
