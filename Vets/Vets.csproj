@@ -134,6 +134,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Animais.cs" />
     <Compile Include="Models\Donos.cs" />
     <Compile Include="Models\VetsDB.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
