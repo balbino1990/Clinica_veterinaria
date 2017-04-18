@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Vets.Models.Donos>  
+<!--é identificar a tabela Dono-->
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Donos</h2>
+
+
+<p>
+    @Html.ActionLink("Criar novo Dono", "Create") <!--é para criar um link em C#-->
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DonoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NIF)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DonoID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NIF)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.DonoID }) |
+            @Html.ActionLink("Detalhes", "Details", new { id=item.DonoID }) |
+            @Html.ActionLink("Apagar", "Delete", new { id=item.DonoID })
+        </td>
+    </tr>
+}
+
+</table>
