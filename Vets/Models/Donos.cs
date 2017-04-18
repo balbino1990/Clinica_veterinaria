@@ -10,23 +10,20 @@ namespace Vets.Models
     {
         public Donos()
         {
-            //construtor da classe, que vai ser utilizado para inicializar o atributo 'ListaDeAnimais'
             ListaDeAnimais = new HashSet<Animais>();
         }
 
-        //os atributos da tabela
 
-        //[Key]
-        public int DonosID { get; set; } //get e set====>para convocar os metodos getters e setters
+        [Key]
+        public int DonoID { get; set; }
 
-        //[Required]
+        [Required]
         public string Nome { set; get; }
 
-        //[Required]
+        [Required]
         public string NIF { get; set; }
 
-        //relacionar os 'Donos' com os 'Animais'
-        // 1 Dono tem Muitos Animais
-        public virtual ICollection<Animais> ListaDeAnimais { get; set; }
+        // especificar que um DONO tem muitos ANIMAIS
+        public ICollection<Animais> ListaDeAnimais { get; set; }
     }
 }
