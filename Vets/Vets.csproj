@@ -133,9 +133,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <None Include="Scripts\jquery-1.10.2-vsdoc.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -168,12 +168,12 @@
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Donos\Create.cshtml" />
-    <Content Include="Views\Donos\Delete.cshtml" />
-    <Content Include="Views\Donos\Details.cshtml" />
-    <Content Include="Views\Donos\Edit.cshtml" />
-    <Content Include="Views\Donos\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Donos\Criar.cshtml" />
+    <Content Include="Views\Donos\Apagar.cshtml" />
+    <Content Include="Views\Donos\Detalhes.cshtml" />
+    <Content Include="Views\Donos\Editar.cshtml" />
+    <Content Include="Views\Donos\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
