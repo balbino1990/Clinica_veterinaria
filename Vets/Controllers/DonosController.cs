@@ -43,45 +43,54 @@ namespace Vets.Controllers
             return View(donos);
         }
 
-        // GET: Donos/Create
+        // GET: Donos/criar
         public ActionResult Criar()
         {
+            //retornar para o VIEW
             return View();
         }
 
-        // POST: Donos/Create
+        // POST: Donos/Criar
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Criar([Bind(Include = "DonoID,Nome,NIF")] Donos donos)
         {
+            // Se o codigo do controller não ocorreu algum erro
             if (ModelState.IsValid)
             {
+                //Vai adicionar para a tabela 'Donos' do base de dados 'VetsDB'
                 db.Donos.Add(donos);
+                // Guarda as alterações ou o novo dono se não existe nenhum erro
                 db.SaveChanges();
+                //retornar e redirecionar para o ação ou view 'Index' 
                 return RedirectToAction("Index");
             }
-
+            //retornar para o 'View' da tabela 'Donos'
             return View(donos);
         }
 
-        // GET: Donos/Edit/5
+        // GET: Donos/Editar/5
         public ActionResult Editar(int? id)
         {
+            //Se não encontra o 'id' do dono
             if (id == null)
             {
+                // retornar o erro de estado de Http
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            //se não, a tabela Dono igual um 'id' que encontrar na tabela Dono (Base de dados 'VetsDB')
             Donos donos = db.Donos.Find(id);
+            //se não existia a tabela Donos ou se for igual a nulo 
             if (donos == null)
             {
+                // vai retornar um erro do Http que se disse 'não existe'
                 return HttpNotFound();
             }
+            //retornar para o View da tabela 'Donos'
             return View(donos);
         }
 
-        // POST: Donos/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Donos/Editar/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Editar([Bind(Include = "DonoID,Nome,NIF")] Donos donos)
