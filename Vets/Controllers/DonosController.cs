@@ -25,15 +25,21 @@ namespace Vets.Controllers
         // GET: Donos/Details/5
         public ActionResult Details(int? id)
         {
+            //se o id do Dono igual nulo ou não existe
             if (id == null)
             {
+                //retornar o novo erro de Http na pagina Web
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            //se não, a tabela Dono igual um 'id' que encontrar na tabela Dono (Base de dados 'VetsDB')
             Donos donos = db.Donos.Find(id);
+            //se não existia a tabela Donos ou se for igual a nulo
             if (donos == null)
             {
+                //vai retornar um erro de Http, que disse a tabela procurada não existe na base de dados
                 return HttpNotFound();
             }
+            //se não, vai retornar para o views da tabela 'Donos'
             return View(donos);
         }
 
@@ -44,8 +50,6 @@ namespace Vets.Controllers
         }
 
         // POST: Donos/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "DonoID,Nome,NIF")] Donos donos)
