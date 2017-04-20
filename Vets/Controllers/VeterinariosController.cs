@@ -17,7 +17,7 @@ namespace Vets.Controllers
         // GET: Veterinarios
         public ActionResult Index()
         {
-            return View(db.Veterinarios.ToList());
+            return View(db.Veterinarios.ToList().OrderBy(d=>d.VeterinarioID));
         }
 
         // GET: Veterinarios/Details/5

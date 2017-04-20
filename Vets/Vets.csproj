@@ -168,10 +168,10 @@
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Veterinarios\Create.cshtml" />
-    <Content Include="Views\Veterinarios\Delete.cshtml" />
-    <Content Include="Views\Veterinarios\Details.cshtml" />
-    <Content Include="Views\Veterinarios\Edit.cshtml" />
+    <Content Include="Views\Veterinarios\Criar.cshtml" />
+    <Content Include="Views\Veterinarios\Apagar.cshtml" />
+    <Content Include="Views\Veterinarios\Detalhes.cshtml" />
+    <Content Include="Views\Veterinarios\Editar.cshtml" />
     <Content Include="Views\Veterinarios\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">
