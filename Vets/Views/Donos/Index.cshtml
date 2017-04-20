@@ -7,7 +7,7 @@
 <h2>Donos</h2>
 
 <p>
-    @Html.ActionLink("criar Novo Dono", "Create")
+    @Html.ActionLink("Criar o Novo Dono", "Criar")
 </p>
 <table class="table">
     <tr>
@@ -35,9 +35,9 @@
             @Html.DisplayFor(modelItem => item.NIF)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.DonoID }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.DonoID }) |
-            @Html.ActionLink("Apagar", "Delete", new { id=item.DonoID })
+            @Html.ActionLink("Editar", "Editar", new { id=item.DonoID }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.DonoID }) |
+            @Html.ActionLink("Apagar", "Apagar", new { id=item.DonoID })
         </td>
     </tr>
 }
