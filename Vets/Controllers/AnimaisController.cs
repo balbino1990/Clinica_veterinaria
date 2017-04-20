@@ -18,7 +18,7 @@ namespace Vets.Controllers
         public ActionResult Index()
         {
             var animais = db.Animais.Include(a => a.Dono);
-            return View(animais.ToList());
+            return View(animais.ToList().OrderBy(d=>d.AnimalID));
         }
 
         // GET: Animais/Details/5
