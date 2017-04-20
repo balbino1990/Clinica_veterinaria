@@ -21,7 +21,7 @@ namespace Vets.Controllers
         }
 
         // GET: Veterinarios/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Detalhes(int? id)
         {
             if (id == null)
             {
@@ -36,7 +36,7 @@ namespace Vets.Controllers
         }
 
         // GET: Veterinarios/Create
-        public ActionResult Create()
+        public ActionResult Criar()
         {
             return View();
         }
@@ -46,7 +46,7 @@ namespace Vets.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "VeterinarioID,Nome,Rua,NumPorta,Andar,CodPostal,NIF,DataEntradaClinica,NumCedulaProf,DataInscOrdem,Faculdade")] Veterinarios veterinarios)
+        public ActionResult Criar([Bind(Include = "VeterinarioID,Nome,Rua,NumPorta,Andar,CodPostal,NIF,DataEntradaClinica,NumCedulaProf,DataInscOrdem,Faculdade")] Veterinarios veterinarios)
         {
             if (ModelState.IsValid)
             {
@@ -59,7 +59,7 @@ namespace Vets.Controllers
         }
 
         // GET: Veterinarios/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Editar(int? id)
         {
             if (id == null)
             {
@@ -78,7 +78,7 @@ namespace Vets.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "VeterinarioID,Nome,Rua,NumPorta,Andar,CodPostal,NIF,DataEntradaClinica,NumCedulaProf,DataInscOrdem,Faculdade")] Veterinarios veterinarios)
+        public ActionResult Editar([Bind(Include = "VeterinarioID,Nome,Rua,NumPorta,Andar,CodPostal,NIF,DataEntradaClinica,NumCedulaProf,DataInscOrdem,Faculdade")] Veterinarios veterinarios)
         {
             if (ModelState.IsValid)
             {
@@ -90,7 +90,7 @@ namespace Vets.Controllers
         }
 
         // GET: Veterinarios/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Apagar(int? id)
         {
             if (id == null)
             {
@@ -105,7 +105,7 @@ namespace Vets.Controllers
         }
 
         // POST: Veterinarios/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Apagar")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

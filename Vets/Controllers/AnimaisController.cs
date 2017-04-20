@@ -22,7 +22,7 @@ namespace Vets.Controllers
         }
 
         // GET: Animais/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Detalhes(int? id)
         {
             if (id == null)
             {
@@ -37,7 +37,7 @@ namespace Vets.Controllers
         }
 
         // GET: Animais/Create
-        public ActionResult Create()
+        public ActionResult Criar()
         {
             ViewBag.DonosFK = new SelectList(db.Donos, "DonoID", "Nome");
             return View();
@@ -48,7 +48,7 @@ namespace Vets.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AnimalID,Nome,Especie,Raca,Peso,Altura,DonosFK")] Animais animais)
+        public ActionResult Criar([Bind(Include = "AnimalID,Nome,Especie,Raca,Peso,Altura,DonosFK")] Animais animais)
         {
             if (ModelState.IsValid)
             {
@@ -62,7 +62,7 @@ namespace Vets.Controllers
         }
 
         // GET: Animais/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Editar(int? id)
         {
             if (id == null)
             {
@@ -82,7 +82,7 @@ namespace Vets.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AnimalID,Nome,Especie,Raca,Peso,Altura,DonosFK")] Animais animais)
+        public ActionResult Editar([Bind(Include = "AnimalID,Nome,Especie,Raca,Peso,Altura,DonosFK")] Animais animais)
         {
             if (ModelState.IsValid)
             {
@@ -95,7 +95,7 @@ namespace Vets.Controllers
         }
 
         // GET: Animais/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Apagar(int? id)
         {
             if (id == null)
             {
@@ -110,7 +110,7 @@ namespace Vets.Controllers
         }
 
         // POST: Animais/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Apagar")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {

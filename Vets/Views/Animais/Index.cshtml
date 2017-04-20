@@ -7,15 +7,12 @@
 <h2>Animais</h2>
 
 <p>
-    @Html.ActionLink("Criar Novo Animal", "Create")
+    @Html.ActionLink("Criar Novo Animal", "criar")
 </p>
-<table class="table">
-    <tr>
+<table border="1">
+    <tr style="background-color:#00ff90;">
         <th>
-            @Html.DisplayNameFor(model => model.Dono.DonoID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dono.Nome)
+            @Html.DisplayNameFor(model => model.AnimalID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Nome)
@@ -32,16 +29,13 @@
         <th>
             @Html.DisplayNameFor(model => model.Altura)
         </th>
-        <th></th>
+        <th>Opções para gerar</th>
     </tr>
 
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Dono.DonoID)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Dono.Nome)
+            @Html.DisplayFor(modelItem => item.AnimalID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nome)

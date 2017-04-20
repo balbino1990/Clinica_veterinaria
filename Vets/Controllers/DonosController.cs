@@ -23,7 +23,7 @@ namespace Vets.Controllers
         }
 
         // GET: Donos/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Detalhes(int? id)
         {
             //se o id do Dono igual nulo ou não existe
             if (id == null)
@@ -44,7 +44,7 @@ namespace Vets.Controllers
         }
 
         // GET: Donos/Create
-        public ActionResult Create()
+        public ActionResult Criar()
         {
             return View();
         }
@@ -52,7 +52,7 @@ namespace Vets.Controllers
         // POST: Donos/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "DonoID,Nome,NIF")] Donos donos)
+        public ActionResult Criar([Bind(Include = "DonoID,Nome,NIF")] Donos donos)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace Vets.Controllers
         }
 
         // GET: Donos/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Editar(int? id)
         {
             if (id == null)
             {
@@ -84,7 +84,7 @@ namespace Vets.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "DonoID,Nome,NIF")] Donos donos)
+        public ActionResult Editar([Bind(Include = "DonoID,Nome,NIF")] Donos donos)
         {
             if (ModelState.IsValid)
             {
@@ -96,7 +96,7 @@ namespace Vets.Controllers
         }
 
         // GET: Donos/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Apagar(int? id)
         {
             if (id == null)
             {
@@ -111,7 +111,7 @@ namespace Vets.Controllers
         }
 
         // POST: Donos/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost, ActionName("Apagar")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
