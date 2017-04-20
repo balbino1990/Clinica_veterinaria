@@ -7,7 +7,7 @@
 <h2>Veterinarios</h2>
 
 <p>
-    @Html.ActionLink("Criar Novo Veterinarios", "Create")
+    @Html.ActionLink("Criar Novo Veterinarios", "Criar")
 </p>
 <table class="table">
     <tr>
@@ -83,9 +83,9 @@
             @Html.DisplayFor(modelItem => item.Faculdade)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Edit", new { id=item.VeterinarioID }) |
-            @Html.ActionLink("Detalhes", "Details", new { id=item.VeterinarioID }) |
-            @Html.ActionLink("Apagar", "Delete", new { id=item.VeterinarioID })
+            @Html.ActionLink("Editar", "Editar", new { id=item.VeterinarioID }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.VeterinarioID }) |
+            @Html.ActionLink("Apagar", "Apagar", new { id=item.VeterinarioID })
         </td>
     </tr>
 }
