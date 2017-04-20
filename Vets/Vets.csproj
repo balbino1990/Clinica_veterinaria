@@ -138,6 +138,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AnimaisController.cs" />
+    <Compile Include="Controllers\DonosController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -161,6 +162,11 @@
     <Content Include="Views\Animais\Editar.cshtml" />
     <Content Include="Views\Animais\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="Views\Donos\Apagar.cshtml" />
+    <Content Include="Views\Donos\Criar.cshtml" />
+    <Content Include="Views\Donos\Detalhes.cshtml" />
+    <Content Include="Views\Donos\Editar.cshtml" />
+    <Content Include="Views\Donos\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
