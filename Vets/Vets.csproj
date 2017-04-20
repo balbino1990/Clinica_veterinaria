@@ -168,10 +168,10 @@
     </Content>
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Consultas\Create.cshtml" />
-    <Content Include="Views\Consultas\Delete.cshtml" />
-    <Content Include="Views\Consultas\Details.cshtml" />
-    <Content Include="Views\Consultas\Edit.cshtml" />
+    <Content Include="Views\Consultas\Criar.cshtml" />
+    <Content Include="Views\Consultas\Apagar.cshtml" />
+    <Content Include="Views\Consultas\Detalhes.cshtml" />
+    <Content Include="Views\Consultas\Editar.cshtml" />
     <Content Include="Views\Consultas\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Web.Debug.config">

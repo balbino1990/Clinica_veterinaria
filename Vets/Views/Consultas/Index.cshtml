@@ -7,12 +7,12 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Criar a nova Consulta", "Criar")
 </p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Animal.ConsultaID)
+            @Html.DisplayNameFor(model => model.ConsultaID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Animal.Nome)
@@ -41,9 +41,9 @@
             @Html.DisplayFor(modelItem => item.DataConsulta)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ConsultaID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ConsultaID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ConsultaID })
+            @Html.ActionLink("Editar", "Editar", new { id=item.ConsultaID }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.ConsultaID }) |
+            @Html.ActionLink("Apagar", "Apagar", new { id=item.ConsultaID })
         </td>
     </tr>
 }
