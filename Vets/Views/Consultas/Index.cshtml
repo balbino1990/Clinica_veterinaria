@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Vets.Models.Consultas>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Criar a nova Consulta", "Criar")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ConsultaID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Animal.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Veterinario.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataConsulta)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem=>item.ConsultaID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Animal.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Veterinario.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DataConsulta)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.ConsultaID }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.ConsultaID }) |
+            @Html.ActionLink("Apagar", "Apagar", new { id=item.ConsultaID })
+        </td>
+    </tr>
+}
+
+</table>
