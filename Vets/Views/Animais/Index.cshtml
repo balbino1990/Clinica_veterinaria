@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Vets.Models.Animais>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Animais</h2>
+
+<p>
+    @Html.ActionLink("Criar Novo Animal", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Dono.DonoID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dono.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Especie)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Raca)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Peso)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Altura)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dono.DonoID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Dono.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Especie)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Raca)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Peso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Altura)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Editar", new { id=item.AnimalID }) |
+            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.AnimalID }) |
+            @Html.ActionLink("Apagar", "Apagar", new { id=item.AnimalID })
+        </td>
+    </tr>
+}
+
+</table>
