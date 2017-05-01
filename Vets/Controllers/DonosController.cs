@@ -22,7 +22,7 @@ namespace Vets.Controllers
             return View(db.Donos.ToList().OrderBy(d=>d.DonoID));
         }
 
-        // GET: Donos/Details/5
+        // GET: Donos/Detailhes/5
         public ActionResult Detalhes(int? id)
         {
             //se o id do Dono igual nulo ou não existe
@@ -104,29 +104,39 @@ namespace Vets.Controllers
             return View(donos);
         }
 
-        // GET: Donos/Delete/5
+        // GET: Donos/Apagar/5
         public ActionResult Apagar(int? id)
         {
+            //Se o id do 'Dono' igual nulo
             if (id == null)
             {
+                //retorna o erro do Http
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            //se não, a tabela Dono igual um 'id' que encontrar na tabela Dono (Base de dados 'VetsDB')
             Donos donos = db.Donos.Find(id);
+            //Se a tabela 'Donos' igual nulo
             if (donos == null)
             {
+                //retorna o erro do Http que se disse 'não encontra no modelo ou tabela Donos'
                 return HttpNotFound();
             }
+            //retorna para o View do 'Donos'
             return View(donos);
         }
 
-        // POST: Donos/Delete/5
+        // POST: Donos/Apagar/5
         [HttpPost, ActionName("Apagar")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+            //a tabela Dono igual um 'id' que encontrar na tabela Donos (Base de dados 'VetsDB')
             Donos donos = db.Donos.Find(id);
+            //vai remover este 'dono' que se encontrar na tabela 'Donos' (Base de dados 'VetsDB') 
             db.Donos.Remove(donos);
+            //Guarda a alteração na base de dados 'VetsDB'
             db.SaveChanges();
+            //retorna ou redireciona para o Action 'View'
             return RedirectToAction("Index");
         }
 
