@@ -20,7 +20,7 @@ namespace Vets.Controllers
             return View(db.Veterinarios.ToList().OrderBy(d=>d.VeterinarioID));
         }
 
-        // GET: Veterinarios/Details/5
+        // GET: Veterinarios/Detalhes/5
         public ActionResult Detalhes(int? id)
         {
             if (id == null)
@@ -35,15 +35,13 @@ namespace Vets.Controllers
             return View(veterinarios);
         }
 
-        // GET: Veterinarios/Create
+        // GET: Veterinarios/Criar
         public ActionResult Criar()
         {
             return View();
         }
 
-        // POST: Veterinarios/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Veterinarios/Criar
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Criar([Bind(Include = "VeterinarioID,Nome,Rua,NumPorta,Andar,CodPostal,NIF,DataEntradaClinica,NumCedulaProf,DataInscOrdem,Faculdade")] Veterinarios veterinarios)
@@ -58,7 +56,7 @@ namespace Vets.Controllers
             return View(veterinarios);
         }
 
-        // GET: Veterinarios/Edit/5
+        // GET: Veterinarios/Editar/5
         public ActionResult Editar(int? id)
         {
             if (id == null)
@@ -73,9 +71,7 @@ namespace Vets.Controllers
             return View(veterinarios);
         }
 
-        // POST: Veterinarios/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Veterinarios/Editar/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Editar([Bind(Include = "VeterinarioID,Nome,Rua,NumPorta,Andar,CodPostal,NIF,DataEntradaClinica,NumCedulaProf,DataInscOrdem,Faculdade")] Veterinarios veterinarios)
@@ -89,7 +85,7 @@ namespace Vets.Controllers
             return View(veterinarios);
         }
 
-        // GET: Veterinarios/Delete/5
+        // GET: Veterinarios/Apagar/5
         public ActionResult Apagar(int? id)
         {
             if (id == null)
@@ -104,7 +100,7 @@ namespace Vets.Controllers
             return View(veterinarios);
         }
 
-        // POST: Veterinarios/Delete/5
+        // POST: Veterinarios/Apagar/5
         [HttpPost, ActionName("Apagar")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

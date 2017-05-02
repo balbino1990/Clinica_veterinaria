@@ -1,13 +1,12 @@
 ﻿@model Vets.Models.Veterinarios
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Detalhes Veterinarios";
 }
 
-<h2>Details</h2>
+<h2>Detalhes dos veterinarios</h2>
 
 <div>
-    <h4>Veterinarios</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -93,6 +92,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.VeterinarioID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Editar", "Editar", new { id = Model.VeterinarioID }) |
+    @Html.ActionLink("Volta para a lista", "Index")
 </p>

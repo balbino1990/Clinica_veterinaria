@@ -21,7 +21,7 @@ namespace Vets.Controllers
             return View(animais.ToList().OrderBy(d=>d.AnimalID));
         }
 
-        // GET: Animais/Details/5
+        // GET: Animais/Detalhes/5
         public ActionResult Detalhes(int? id)
         {
             if (id == null)
@@ -36,16 +36,14 @@ namespace Vets.Controllers
             return View(animais);
         }
 
-        // GET: Animais/Create
+        // GET: Animais/Criar
         public ActionResult Criar()
         {
             ViewBag.DonosFK = new SelectList(db.Donos, "DonoID", "Nome");
             return View();
         }
 
-        // POST: Animais/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Animais/Criar
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Criar([Bind(Include = "AnimalID,Nome,Especie,Raca,Peso,Altura,DonosFK")] Animais animais)
@@ -61,7 +59,7 @@ namespace Vets.Controllers
             return View(animais);
         }
 
-        // GET: Animais/Edit/5
+        // GET: Animais/Editar/5
         public ActionResult Editar(int? id)
         {
             if (id == null)
@@ -77,9 +75,7 @@ namespace Vets.Controllers
             return View(animais);
         }
 
-        // POST: Animais/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Animais/Editar/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Editar([Bind(Include = "AnimalID,Nome,Especie,Raca,Peso,Altura,DonosFK")] Animais animais)
@@ -94,7 +90,7 @@ namespace Vets.Controllers
             return View(animais);
         }
 
-        // GET: Animais/Delete/5
+        // GET: Animais/Apagar/5
         public ActionResult Apagar(int? id)
         {
             if (id == null)
@@ -109,7 +105,7 @@ namespace Vets.Controllers
             return View(animais);
         }
 
-        // POST: Animais/Delete/5
+        // POST: Animais/Apagar/5
         [HttpPost, ActionName("Apagar")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

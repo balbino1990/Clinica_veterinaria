@@ -1,12 +1,11 @@
 ﻿@model Vets.Models.Animais
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Apagar Animais";
 }
 
-<h2>Delete</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Quer apagar mesmo?</h3>
 <div>
     <h4>Animais</h4>
     <hr />
@@ -63,10 +62,10 @@
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
-
+        <br />
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Apagar" class="btn btn-default" style="background-color:#ff0000;"/> |
+            @Html.ActionLink("Volta para a lista", "Index")
         </div>
     }
 </div>

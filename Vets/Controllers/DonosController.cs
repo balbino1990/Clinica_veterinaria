@@ -52,8 +52,8 @@ namespace Vets.Controllers
 
         // POST: Donos/Criar
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Criar([Bind(Include = "DonoID,Nome,NIF")] Donos donos)
+        [ValidateAntiForgeryToken]   //Para evitar algum ataque ou falsificação dos dados dos utilizadores
+        public ActionResult Criar([Bind(Include = "DonoID,Nome,NIF")] Donos donos)     //Só vai listar ou aceitar os atributos definidos ('DonoID, Nome, NIF')
         {
             // Se o codigo do controller não ocorreu algum erro
             if (ModelState.IsValid)
@@ -111,7 +111,7 @@ namespace Vets.Controllers
             if (id == null)
             {
                 //retorna o erro do Http
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Não existe o dono na lista");
             }
             //se não, a tabela Dono igual um 'id' que encontrar na tabela Dono (Base de dados 'VetsDB')
             Donos donos = db.Donos.Find(id);
@@ -119,7 +119,7 @@ namespace Vets.Controllers
             if (donos == null)
             {
                 //retorna o erro do Http que se disse 'não encontra no modelo ou tabela Donos'
-                return HttpNotFound();
+                return HttpNotFound("A tabela de donos não existe!");
             }
             //retorna para o View do 'Donos'
             return View(donos);

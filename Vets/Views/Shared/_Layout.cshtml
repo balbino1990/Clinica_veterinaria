@@ -9,35 +9,37 @@
 
 </head>
 <body>
-   
-    <table class="link">
-        @*coluna dos titulos*@
-        <tr>
-            <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff"; width="200px">
-                @Html.ActionLink("Donos", "Index", "Donos")
-            </td>
+    <div style="position:fixed; left:10%">
+        <table class="link">
+            @*coluna dos titulos*@
+            <tr>
+                <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff;  width:200px; height:50px">
+                    @Html.ActionLink("Donos", "Index", "Donos", new { style = "font-size:20px; font-family:time new roman; color:#123456" })
+                </td>
 
-            @* ######################################################################################################################*@
-            <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff"; width="200px">
-                @Html.ActionLink("Animais", "Index", "Animais")
-            </td>
-            @* ######################################################################################################################*@
-            <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff"; width="200px">
-                @Html.ActionLink("Consultas", "Index", "Consultas")
-            </td>
-            @* #######################################################################################################################*@
-            <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff"; width="200px">
-                @Html.ActionLink("Veterinarios", "Index", "Veterinarios")
-            </td>
+                @* ######################################################################################################################*@
+                <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff;  width:200px; height:50px">
+                    @Html.ActionLink("Animais", "Index", "Animais", new { style="font-size:20px; font-family:time new roman; color:#123456"})
+                </td>
+                @* ######################################################################################################################*@
+                <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff;  width:200px; height:50px">
+                    @Html.ActionLink("Consultas", "Index", "Consultas", new { style = "font-size:20px; font-family:time new roman; color:#123456" })
+                </td>
+                @* #######################################################################################################################*@
+                <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff;  width:200px; height:50px">
+                   @* <a href="/Veterinarios/Index">Veterinarios</a>*@
+                    @Html.ActionLink("Veterinarios", "Index", "Veterinarios", new { style="font-size:20px; font-family:time new roman; color:#123456"})
+                </td>
 
-            @* #######################################################################################################################*@
-            @*Se esta autenticado, então faça esta*@
+                @* #######################################################################################################################*@
+                @*Se esta autenticado, então faça esta*@
 
-        </tr>
+            </tr>
 
-    </table>
+        </table>
+    </div>
 
-
+    <br /><br /><br />
     @*<div class="navbar-collapse collapse">
         @Html.Partial("_LoginPartial")
     </div>*@
