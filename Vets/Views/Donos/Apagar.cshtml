@@ -1,12 +1,14 @@
 ﻿@model Vets.Models.Donos
 
 @{
-    ViewBag.Title = "APagar donos";
+    ViewBag.Title = "Remover cliente";
 }
 
-<h2>Apagar os donos</h2>
+<h2>Remover ficha da <i><b>Cliente</b></i></h2>
 
-<h3>Quer apagar mesmo?</h3>
+<h3>Quer apagar mesmo este registo?</h3>
+@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
 <div>
     <hr />
     <dl class="dl-horizontal">
@@ -32,8 +34,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Apagar" class="btn btn-default" style="background-color:#ff0000"/> |
-            @Html.ActionLink("Volta para a lista", "Index")
+            <input type="submit" value="Remover" class="btn btn-default" style="background-color:#ff0000"/> |
+            @Html.ActionLink("Reggresar à lista", "Index")
         </div>
     }
 </div>

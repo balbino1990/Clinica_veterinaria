@@ -107,36 +107,52 @@ namespace Vets.Controllers
         // GET: Donos/Apagar/5
         public ActionResult Apagar(int? id)
         {
-            //Se o id do 'Dono' igual nulo
+
+            //avalia se o parâmetro é nulo
             if (id == null)
             {
-                //retorna o erro do Http
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Não existe o dono na lista");
+                //redireciona para o inicio
+                return RedirectToAction("Index");
+                    //new HttpStatusCodeResult(HttpStatusCode.BadRequest, "Não existe o dono na lista");
             }
-            //se não, a tabela Dono igual um 'id' que encontrar na tabela Dono (Base de dados 'VetsDB')
-            Donos donos = db.Donos.Find(id);
-            //Se a tabela 'Donos' igual nulo
-            if (donos == null)
+            //procurar o dono na base dados, cuja chave primaria é igual ao parâmetro fornecido
+            Donos dono = db.Donos.Find(id);
+            //Se o dono não é encontrado
+            if (dono == null)
             {
-                //retorna o erro do Http que se disse 'não encontra no modelo ou tabela Donos'
-                return HttpNotFound("A tabela de donos não existe!");
+                //redireciona para o inicio
+                return RedirectToAction("Index");
             }
             //retorna para o View do 'Donos'
-            return View(donos);
+            return View(dono);
         }
 
         // POST: Donos/Apagar/5
         [HttpPost, ActionName("Apagar")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
-        {
-            //a tabela Dono igual um 'id' que encontrar na tabela Donos (Base de dados 'VetsDB')
-            Donos donos = db.Donos.Find(id);
-            //vai remover este 'dono' que se encontrar na tabela 'Donos' (Base de dados 'VetsDB') 
-            db.Donos.Remove(donos);
-            //Guarda a alteração na base de dados 'VetsDB'
-            db.SaveChanges();
-            //retorna ou redireciona para o Action 'View'
+        { 
+            //procurar o dono na base dados, cuja chave primaria é igual ao parâmetro fornecido
+            Donos dono = db.Donos.Find(id);
+
+            try
+            {
+                //remove do objeto 'db', o dono encontrado na linha anterior
+                db.Donos.Remove(dono);
+                //torna definitivas as instruções anteriores
+                db.SaveChanges();
+            }
+            catch (System.Exception){
+                // gerar uma mensnagem de erro, a ser entregue ao utilizador
+                ModelState.AddModelError("",
+                    string.Format("Ocorreu um erro na operação de eliminar o 'dono' com ID {0} - {1}", id, dono.Nome)
+                );
+                //regressar à view 'Delete'
+                return View(dono);
+
+            }
+           
+            //devolve o controlo do programa, apresenta a view 'Index'
             return RedirectToAction("Index");
         }
 
