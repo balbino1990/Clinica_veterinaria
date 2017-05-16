@@ -22,8 +22,13 @@ namespace Vets.Models
 
         [Required(ErrorMessage = "O {0} é preenchimento obrigatorio...")]
         [Display(Name = "Nome do Dono")]
+        [RegularExpression("[A-Z][a-záéíóúàèìòùãõäëïöüçñ]+((( )|(-)|((e|de|da|dos) )|( d'))|[A-Z][a-záéíóúàèìòùãõäëïöüçñ]+){1,3}", ErrorMessage ="Deve escrever o {0} só com letras")]  //Expressão regular é um filtro que válida o atributo.........[] é para agrupar os simbolos aceitaveis
+        //    \w significa aceitar um valor alfa-númerico (letras ou algarismos)
+        //      ? significa zero ou uma, + significa uma ou mais, * significa zero ou mais
         public string Nome { set; get; }
 
+
+        [RegularExpression("[0-9]{9}", ErrorMessage = "O campo {0} só aceitar 9 algarismos")]
         [Required(ErrorMessage = "O {0} é preenchimento obrigatoria....")]
         [Display(Name = "NIF do Dono")]
         public string NIF { get; set; }

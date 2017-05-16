@@ -53,20 +53,35 @@ namespace Vets.Controllers
         // POST: Donos/Criar
         [HttpPost]
         [ValidateAntiForgeryToken]   //Para evitar algum ataque ou falsificação dos dados dos utilizadores
-        public ActionResult Criar([Bind(Include = "DonoID,Nome,NIF")] Donos donos)     //Só vai listar ou aceitar os atributos definidos ('DonoID, Nome, NIF')
+        public ActionResult Criar([Bind(Include = "DonoID,Nome,NIF")] Donos dono)     //Só vai listar ou aceitar os atributos definidos ('DonoID, Nome, NIF')
         {
-            // Se o codigo do controller não ocorreu algum erro
+            //determinar o nº (ID) a atribuir ao novo DONO
+            //criar a variavel, que recebe esse valor
+            int noovoID = 0;
+            //determinar o novo ID
+            noovoID = (from d in db.Donos
+                       orderby d.DonoID descending
+                       select d.DonoID).FirstOrDefault() + 1;    //firsOrDefault ===> limit 1 ()
+
+            noovoID = db.Donos.Max(d => d.DonoID) + 1;
+            //select max(d.DonoID)" 
+            //from donos d
+
+            //atribuir o 'novoID' ao objeto 'dono'
+            dono.DonoID = noovoID;
+          
+
             if (ModelState.IsValid)
             {
                 //Vai adicionar para a tabela 'Donos' do base de dados 'VetsDB'
-                db.Donos.Add(donos);
+                db.Donos.Add(dono);
                 // Guarda as alterações ou o novo dono se não existe nenhum erro
                 db.SaveChanges();
                 //retornar e redirecionar para o ação ou view 'Index' 
                 return RedirectToAction("Index");
             }
             //retornar para o 'View' da tabela 'Donos'
-            return View(donos);
+            return View(dono);
         }
 
         // GET: Donos/Editar/5
