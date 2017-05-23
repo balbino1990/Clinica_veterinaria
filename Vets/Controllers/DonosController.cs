@@ -58,28 +58,61 @@ namespace Vets.Controllers
             //determinar o nº (ID) a atribuir ao novo DONO
             //criar a variavel, que recebe esse valor
             int noovoID = 0;
-            //determinar o novo ID
-            noovoID = (from d in db.Donos
-                       orderby d.DonoID descending
-                       select d.DonoID).FirstOrDefault() + 1;    //firsOrDefault ===> limit 1 ()
 
-            noovoID = db.Donos.Max(d => d.DonoID) + 1;
-            //select max(d.DonoID)" 
-            //from donos d
+            try
+            {
+                //##############################
+                //determinar o novo ID
+                //noovoID = (from d in db.Donos
+                //           orderby d.DonoID descending
+                //           select d.DonoID).FirstOrDefault() + 1;    //firsOrDefault ===> limit 1 ()
+                //#####################################################
+
+                noovoID = db.Donos.Max(d => d.DonoID) + 1;
+                //select max(d.DonoID)" 
+                //from donos d
+
+               
+            }
+            catch (System.Exception)
+            {
+                // a tabela de 'DONOS' está vazia
+                // não sendo possivel devolver o MAX de uma tabela
+                // por isso, vou atribuir 'manualmente' o valor do 'noovoID'
+                noovoID = 1;
+            }
 
             //atribuir o 'novoID' ao objeto 'dono'
             dono.DonoID = noovoID;
-          
-
-            if (ModelState.IsValid)
+            try
             {
-                //Vai adicionar para a tabela 'Donos' do base de dados 'VetsDB'
-                db.Donos.Add(dono);
-                // Guarda as alterações ou o novo dono se não existe nenhum erro
-                db.SaveChanges();
-                //retornar e redirecionar para o ação ou view 'Index' 
-                return RedirectToAction("Index");
+                // nõa gera uma seção porque vai verificar o base de dados
+                if (ModelState.IsValid)
+                {
+                    //Vai adicionar para a tabela 'Donos' do base de dados 'VetsDB'
+                    db.Donos.Add(dono);
+                    // salvar as alterações na base de dados
+                    db.SaveChanges(); 
+                    //retornar e redirecionar para o ação ou view 'Index' 
+                    return RedirectToAction("Index");
+                }
             }
+            catch (System.Exception)
+            {
+                // não consigo guardar as alterações 
+                //No minimo, preciso de notificar o utilizador que o processo falhou
+                ModelState.AddModelError("", "Ocorreu um erro na adição do novo Dono.");
+                //notificar o 'administrador/programador' que ocorreu este erro
+                //fazer: 1º enviar email ao programador a informar da ocorrência do erro
+                // 2º ter uma tabela, na BD onde são reportados os erros: 
+                //  -data
+                //  -método
+                //  -controller
+                //  -detalhes do erro
+
+            }
+
+
             //retornar para o 'View' da tabela 'Donos'
             return View(dono);
         }
