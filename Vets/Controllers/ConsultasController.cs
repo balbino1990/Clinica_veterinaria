@@ -12,7 +12,7 @@ namespace Vets.Controllers
 {
     public class ConsultasController : Controller
     {
-        private VetsDB db = new VetsDB();
+        private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Consultas
         public ActionResult Index()

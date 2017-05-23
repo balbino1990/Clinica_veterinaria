@@ -4,46 +4,37 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-    @*@Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")*@
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div style="position:fixed; left:10%">
-        <table class="link">
-            @*coluna dos titulos*@
-            <tr>
-                <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff;  width:200px; height:50px">
-                    @Html.ActionLink("Donos", "Index", "Donos")
-                </td>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Donos", "Index", "Donos")</li>
 
-                @* ######################################################################################################################*@
-                <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff;  width:200px; height:50px">
-                    @Html.ActionLink("Animais", "Index", "Animais")
-                </td>
-                @* ######################################################################################################################*@
-                <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff;  width:200px; height:50px">
-                    @Html.ActionLink("Consultas", "Index", "Consultas")
-                </td>
-                @* #######################################################################################################################*@
-                <td style="border:2px solid #ffffff; padding:4px; background-color:#00ffff;  width:200px; height:50px">
-                   @* <a href="/Veterinarios/Index">Veterinarios</a>*@
-                    @Html.ActionLink("Veterinarios", "Index", "Veterinarios")
-                </td>
-
-                @* #######################################################################################################################*@
-                @*Se esta autenticado, então faça esta*@
-
-            </tr>
-
-        </table>
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin")) {
+                        <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
+                        <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
+                    }
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
     </div>
-
-    <br /><br /><br />
-    @*<div class="navbar-collapse collapse">
-        @Html.Partial("_LoginPartial")
-    </div>*@
-
     <div class="container body-content">
         @RenderBody()
         <hr />
@@ -52,8 +43,8 @@
         </footer>
     </div>
 
-    @*@Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")*@
-    @*@RenderSection("scripts", required: false)*@
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 </html>
