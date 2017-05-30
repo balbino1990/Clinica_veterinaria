@@ -22,7 +22,7 @@ namespace Vets.Models
 
         [Required(ErrorMessage = "O {0} é preenchimento obrigatorio...")]
         [Display(Name = "Nome do Dono")]
-        [RegularExpression("[A-Z][a-záéíóúàèìòùãõäëïöüçñ]+((( )|(-)|((e|de|da|dos) )|( d'))|[A-Z][a-záéíóúàèìòùãõäëïöüçñ]+){1,3}", ErrorMessage ="Deve escrever o {0} só com letras")]  //Expressão regular é um filtro que válida o atributo.........[] é para agrupar os simbolos aceitaveis
+        [RegularExpression("[A-Z][a-záéíóúâêîôûàèìòùãõäëïöüçñ]+((( )|(-)|((e|de|da|dos) )|( d'))|[A-Z][a-záéíóúâêîôûàèìòùãõäëïöüçñ]+){1,3}", ErrorMessage ="Deve escrever o {0} só com letras")]  //Expressão regular é um filtro que válida o atributo.........[] é para agrupar os simbolos aceitaveis
         //    \w significa aceitar um valor alfa-númerico (letras ou algarismos)
         //      ? significa zero ou uma, + significa uma ou mais, * significa zero ou mais
         public string Nome { set; get; }
@@ -32,6 +32,13 @@ namespace Vets.Models
         [Required(ErrorMessage = "O {0} é preenchimento obrigatoria....")]
         [Display(Name = "NIF do Dono")]
         public string NIF { get; set; }
+
+
+        // criar uma 'ponte' entre a BD do negocio e a BD de autenticaçaõ
+        public string NomeUtilizadores { get; set; }
+
+
+
 
         // especificar que um DONO tem muitos ANIMAIS
         public ICollection<Animais> ListaDeAnimais { get; set; }

@@ -6,9 +6,12 @@
 
 <h2>Tabela Donos</h2>
 
-<p>
+
+@if (User.IsInRole("Funcionario"))
+{
     @Html.ActionLink("Criar o Novo Dono", "Criar")
-</p>
+}
+
 <table border="1">
     <tr style="background-color:#00ff90;">
         <th>
@@ -35,9 +38,15 @@
             @Html.DisplayFor(modelItem => item.NIF)
         </td>
         <td>
-            @Html.ActionLink("Editar", "Editar", new { id=item.DonoID }) |
-            @Html.ActionLink("Detalhes", "Detalhes", new { id=item.DonoID }) |
-            @Html.ActionLink("Apagar", "Apagar", new { id=item.DonoID })
+            @if (User.IsInRole("Funcionario"))
+            {
+                <div>
+                    @Html.ActionLink("Editar", "Editar", new { id = item.DonoID }) |
+                    @Html.ActionLink("Detalhes", "Detalhes", new { id = item.DonoID }) |
+                    @Html.ActionLink("Apagar", "Apagar", new { id = item.DonoID })
+                </div>
+            }
+           
         </td>
     </tr>
 }

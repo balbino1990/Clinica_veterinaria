@@ -28,8 +28,8 @@ namespace Vets.Migrations
             // ############################################################################################
             // adiciona DONOS
             var donos = new List<Donos> {
-               new Donos  {DonoID=1, Nome = "Luís Freitas", NIF ="813635582" },
-               new Donos  {DonoID=2, Nome = "Andreia Gomes", NIF ="854613462" },
+               new Donos  {DonoID=1, Nome = "Luís Freitas", NIF ="813635582", NomeUtilizadores="balbino.pinto@inforqui.com" },
+               new Donos  {DonoID=2, Nome = "Andreia Gomes", NIF ="854613462",  NomeUtilizadores="balbino.pinto@inforqui.com"},
                new Donos  {DonoID=3, Nome = "Cristina Sousa", NIF ="265368715" },
                new Donos  {DonoID=4, Nome = "Sónia Rosa", NIF ="835623190" },
                new Donos  {DonoID=5, Nome = "António Santos", NIF ="751512205" },

@@ -10,16 +10,30 @@ using Vets.Models;
 
 namespace Vets.Controllers
 {
+    [Authorize]                //as pessoas que autenticados que tem a autorização para aceder
+
     public class DonosController : Controller
     {
+       
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Donos
         public ActionResult Index()
         {
-            //retornar para o view a lista da tabela Donos de BD 'VetsDB', que vai ordenar pelo o 'DonoID' 
-            //de forma ascedente
-            return View(db.Donos.ToList().OrderBy(d=>d.DonoID));
+
+            //mostrar os dados de todos os DONOS apenas aos utilizadores de perfíl 'Funcionario'
+
+            if (User.IsInRole("Funcionario"))
+            {
+                //retornar para o view a lista da tabela Donos de BD 'VetsDB', que vai ordenar pelo o 'DonoID' 
+                //de forma ascedente
+                return View(db.Donos.ToList().OrderBy(d => d.DonoID));
+            }
+
+
+            //select * from DONOS Where NomeDonos = LOGIN
+            //se não, mosta os dados do utilizador autenticado
+            return View(db.Donos.Where(d=>d.NomeUtilizadores == User.Identity.Name).ToList());
         }
 
         // GET: Donos/Detailhes/5
@@ -44,6 +58,7 @@ namespace Vets.Controllers
         }
 
         // GET: Donos/criar
+        [Authorize(Roles = "Funcionario")]      //só pode executar este metodos, as pessoas autenticados e pertence ao role funcionario
         public ActionResult Criar()
         {
             //retornar para o VIEW
@@ -53,6 +68,7 @@ namespace Vets.Controllers
         // POST: Donos/Criar
         [HttpPost]
         [ValidateAntiForgeryToken]   //Para evitar algum ataque ou falsificação dos dados dos utilizadores
+        [Authorize(Roles = "Funcionario")]          //só as pessoas pertencem ao role é que podem aceder a esta funcionalidade
         public ActionResult Criar([Bind(Include = "DonoID,Nome,NIF")] Donos dono)     //Só vai listar ou aceitar os atributos definidos ('DonoID, Nome, NIF')
         {
             //determinar o nº (ID) a atribuir ao novo DONO
